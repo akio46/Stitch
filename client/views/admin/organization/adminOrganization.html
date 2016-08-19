@@ -1,0 +1,70 @@
+<template name="adminOrganization">
+    <section class="page-container page-list">
+        <head class="fixed-title">
+			{{> burger}}
+            <h2>
+                <span class="room-title">Organization</span>
+            </h2>
+        </head>
+        <div class="content">
+            <div class="input-line">
+                <h2>
+                    Organization Name
+                </h2>
+                <table>
+                    <tbody>
+                    <tr class="user-info">
+                        <td>
+                            <input type="text" id='org-name' value="{{orgName}}" />
+                        </td>
+                        <td style="width: 20%">
+                            <button class="edit-org-name button">
+                                Submit
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2>
+                Domains
+            </h2>
+            <br>
+            <div class="list">
+                <table>
+                    <tbody>
+                    <tr class="user-info">
+                        <td>
+                            <input type="text" id="new-domain" placeholder="Add domain" dir="auto">
+                        </td>
+                        <td style="width: 20%">
+                            <button class="add-domain button">
+                                <i class="icon-plus" aria-label="Add"></i>
+                            </button>
+                        </td>
+                    </tr>
+					{{#each domains}}
+						{{> domain}}
+					{{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class="flex-tab">
+        <div class="user-view">
+			{{> Template.dynamic template=flexTemplate data=flexData}}
+        </div>
+    </section>
+</template>
+
+<template name="domain">
+    <tr class="user-info">
+        <td>{{this}}</td>
+        <td>
+            <button class="remove-domain button secondary">
+                <i class="icon-cancel" aria-label="Delete"></i>
+            </button>
+        </td>
+    </tr>
+</template>

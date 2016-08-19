@@ -1,0 +1,32 @@
+<template name="adminFlex">
+	<header>
+		<div>
+			<h4>{{_ "Administration"}}</h4>
+		</div>
+	</header>
+	<div class="content">
+		<div class="wrapper">
+			<ul>
+				{{#if hasPermission 'view-user-administration'}}
+					<li>
+						<a href="{{pathFor 'admin-users'}}" class="admin-link">{{_ "Users"}}</a>
+					</li>
+				{{/if}}
+                <li>
+                    <a href="{{pathFor 'admin-organization'}}" class="admin-link">Organization</a>
+                </li>
+				{{#if isGlobalAdmin}}
+                <h3 class="add-room">
+					{{_ "Settings"}}
+                </h3>
+
+					{{#each groups}}
+                        <li>
+                            <a href="{{pathFor 'admin' group=_id}}" class="admin-link">{{label}}</a>
+                        </li>
+					{{/each}}
+				{{/if}}
+			</ul>
+		</div>
+	</div>
+</template>

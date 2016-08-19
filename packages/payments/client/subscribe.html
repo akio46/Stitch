@@ -1,0 +1,40 @@
+<template name="subscribe">
+	<section class="full-page">
+		<div class="wrapper">
+			<header>
+				<a class="logo" href="/"><img src="/images/logo/logo.svg?v=3"></a>
+			</header>
+			<div>
+				{{#if storedCards}}
+					{{#each storedCards}}
+						<span> my cards</span>
+					{{/each}}
+				{{/if}}
+			</div>
+			<form id="payment-form" method='/'>
+					<div class="fields">
+				        <div class='input-text cc-number'>
+				            <input type="text" name='cc-number' placeholder='Card Number' size="20" data-stripe="number"/>
+				        </div>
+								<div class='input-text cc-exp'>
+									<input type="text" name='cc-exp-month' placeholder='Expiration (MM)' size="2" data-stripe="exp-month"/>
+								</div>
+								<div class='input-text cc-exp'>
+									<input type="text" name='cc-exp-year' placeholder='Expiration (YYYY)' size="4" data-stripe="exp-year"/>
+								</div>
+								<div class='input-text cc-cvc'>
+									<input type="text" name='cc-cvc' placeholder='CVC' size="4" data-stripe="cvc"/>
+								</div>
+					</div>   
+				   	<button type="button" class='button primary make-payment'>Make Payment</button>
+				</form>
+			<div class="login-terms">
+				<a href="/privacy-policy">Privacy Policy</a><br>
+				<a href="{{pathFor 'home'}}">Back to app</a>
+			</div>
+			<footer>
+				
+			</footer>
+		</div>
+	</section>
+</template>
